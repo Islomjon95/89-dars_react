@@ -1,0 +1,11 @@
+.create_product{
+    border: none;
+    border-radius: 8px;
+    background-color: salmon;
+    padding: 5px 30px;
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: -60px;
+    transform: rotate(-90deg);
+}

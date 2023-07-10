@@ -1,0 +1,11 @@
+.navbar_container{
+    color: rgb(201, 91, 57);
+    background-color: cadetblue;
+}
+
+.navbar-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
