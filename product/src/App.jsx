@@ -8,11 +8,9 @@ import { useState } from 'react'
 
 function App() {
 
-const [product , setProduct] = useState([
-  
-])
+const [product , setProduct] = useState([])
 
-const addProduct=(newproduct)=>{
+const addProduct = (newproduct) =>{
   setProduct((prev)=>{
     return [...prev, newproduct]
   })
@@ -29,10 +27,8 @@ const cardDelete = (btnid)=>{
   
 }
 
-
-
   return (
-    <div className='App' >
+    <>
     <Navbar productLength = {product.length}></Navbar>
     <Content product={product} addProduct={addProduct}>
       {product.map((product)=>{
@@ -51,7 +47,7 @@ const cardDelete = (btnid)=>{
     </Content>
     <Footer></Footer>
      
-    </div>
+    </>
   )
 }
 

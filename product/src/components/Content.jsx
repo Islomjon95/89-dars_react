@@ -1,7 +1,7 @@
 import "./css/content.css"
 import { useState } from "react"
 import Modal from "./Modal"
-function Content({product , children, addProduct}) {
+function Content({product , children , addProduct}) {
   const [showModal, setShowModal] = useState(false)
   const closeModal = (e)=>{
     if(e.target.className==="modal__back") setShowModal(false)
@@ -12,7 +12,7 @@ function Content({product , children, addProduct}) {
     <div className="content__product container">
       {children}
     </div>
-    {showModal&&<Modal closeModal={closeModal} addProduct={addProduct}></Modal>}
+    {showModal&&<Modal setShowModal={setShowModal} addProduct={addProduct}></Modal>}
     {product.length===0 ?<h1 className="no__content">No Product</h1> : <small></small>}
     <button onClick={()=>{setShowModal(true)}} className="create_product">Create Product</button>
     </div>

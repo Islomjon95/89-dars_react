@@ -1,9 +1,16 @@
 .navbar_container{
+    position: fixed;
     color: rgb(201, 91, 57);
     background-color: cadetblue;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    height: 80px;
 }
 
 .navbar-content{
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;

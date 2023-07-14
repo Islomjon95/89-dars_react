@@ -1,44 +1,44 @@
 import "./css/form.css"
 import { useState } from "react"
-import { v4 as uuidv4} from "uuid"
+import { v4 as unikalId } from 'uuid';
 
-
-
-function Form({addProduct}) {
-    const [newProduct, setNewProduct]=useState({
-        url: '', 
-        name: '', 
-        price: '', 
-        category: '', 
-        customer: '',
-        id: uuidv4()
+function Form({ addProduct, setShowModal  }) {
+    const [newProduct, setNewProduct] = useState({
+        url: "", 
+        name: "", 
+        price: "" , 
+        category: "" , 
+        customer: "", 
+        id: unikalId() 
     })
 
-    
-
     const handleSubmit = (e)=>{
-        e.preventDefault()
+        e.preventDefault();
         addProduct(newProduct)
+        setShowModal(false)
     }
-    
+
+   
   return (
     <>
         <form className="product__form" onSubmit={handleSubmit}>
+            <legend>Add new Product</legend>
             <label>
                 <span>URL img:</span>
-                <input onChange={(e)=>{setNewProduct((prev)=>{return {...prev, url: e.target.value}})}} type="url" />
+                <input required onChange={(e)=>{setNewProduct((prev)=>{return{...prev, url: e.target.value}})}} type="url" />
             </label>
             <label>
                 <span>Product name:</span>
-                <input onChange={(e)=>{setNewProduct((prev)=>{return {...prev, name: e.target.value}})}} type="text" />
+                <input required onChange={(e)=>{setNewProduct((prev)=>{return{...prev, name: e.target.value}})}} type="text" />
             </label>
             <label>
                 <span>Product price:</span>
-                <input onChange={(e)=>{setNewProduct((prev)=>{return {...prev, price: e.target.value}})}} type="text" />
+                <input required onChange={(e)=>{setNewProduct((prev)=>{return{...prev, price: e.target.value}})}} type="text" />
             </label>
             <label className="selects">
                 <span className="category">Category:</span>
-                <select className="select" onChange={(e)=>{setNewProduct((prev)=>{return {...prev, category: e.target.value}})}}>
+                <select required onChange={(e)=>{setNewProduct((prev)=>{return{...prev, category: e.target.value}})}} className="select">
+                    <option>Choose category</option>
                     <option value="Clothes">Clothes</option>
                     <option value="Tools">Tools</option>
                     <option value="Health">Health</option>
@@ -48,7 +48,7 @@ function Form({addProduct}) {
 
             <label>
                 <span>Customer:</span>
-                <input onChange={(e)=>{setNewProduct((prev)=>{return {...prev, customer: e.target.value}})}} type="text" />
+                <input required onChange={(e)=>{setNewProduct((prev)=>{return{...prev, customer: e.target.value}})}} type="text" />
             </label>
 
             <button type="submit">Submit</button>
