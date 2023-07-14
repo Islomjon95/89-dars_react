@@ -9,15 +9,14 @@ import { useState } from 'react'
 function App() {
 
 const [product , setProduct] = useState([
-  {url: "https://picsum.photos/350/350?random=1", name: "T-short", price: "45$" , category: "clothes" , customer: "Diyor", id: "1"},
-  {url: "https://picsum.photos/350/350?random=2", name: "T-short", price: "45$" , category: "clothes" , customer: "Diyor", id: "2"},
-  {url: "https://picsum.photos/350/350?random=3", name: "T-short", price: "45$" , category: "clothes" , customer: "Diyor", id: "3"},
-  {url: "https://picsum.photos/350/350?random=4", name: "T-short", price: "45$" , category: "clothes" , customer: "Diyor", id: "4"},
-  {url: "https://picsum.photos/350/350?random=5", name: "T-short", price: "45$" , category: "clothes" , customer: "Diyor", id: "5"},
-  {url: "https://picsum.photos/350/350?random=6", name: "T-short", price: "45$" , category: "clothes" , customer: "Diyor", id: "6"},
-  {url: "https://picsum.photos/350/350?random=7", name: "T-short", price: "45$" , category: "clothes" , customer: "Diyor", id: "7"},
-  {url: "https://picsum.photos/350/350?random=8", name: "T-short", price: "45$" , category: "clothes" , customer: "Diyor", id: "8"}
+  
 ])
+
+const addProduct=(newproduct)=>{
+  setProduct((prev)=>{
+    return [...prev, newproduct]
+  })
+}
 
 const cardDelete = (btnid)=>{
   setProduct((prev)=>{
@@ -30,10 +29,12 @@ const cardDelete = (btnid)=>{
   
 }
 
+
+
   return (
-    <>
+    <div className='App' >
     <Navbar productLength = {product.length}></Navbar>
-    <Content product={product}>
+    <Content product={product} addProduct={addProduct}>
       {product.map((product)=>{
         return(
           <div key={product.id} className="productCard">
@@ -50,7 +51,7 @@ const cardDelete = (btnid)=>{
     </Content>
     <Footer></Footer>
      
-    </>
+    </div>
   )
 }
 
